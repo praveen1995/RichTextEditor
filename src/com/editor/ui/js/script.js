@@ -1,6 +1,3 @@
-/**
- * 
- */
 function iframe() {
 	editor.document.designMode = 'on';
 }
@@ -38,6 +35,40 @@ function link() {
 
 function unlink() {
 	editor.document.execCommand('unlink',false,null);
+	
+}
+
+function insertImage() { 
+      var img = document.createElement("img");
+      img.src = "photocat2.jpg"; 
+      img.height = 75; 
+      img.width = 113;
+      img.style.top=800;
+      img.style.right=100;
+      document.body.appendChild(img);
+    }
+	
+
+	
+function unOrderedList() {
+	editor.document.execCommand('insertunorderedlist',false,null);
+}	
+
+function orderedList() {
+editor.document.execCommand('insertorderedlist',false,null);
+}
+
+
+function leftAlign() {
+		editor.document.execCommand('justifyleft',false,null);
+}
+
+function centerAlign() {
+		editor.document.execCommand('justifycenter',false,null);
+}
+
+function rightAlign() {
+		editor.document.execCommand('justifyright',false,null);
 }
 
 function formsubmit() { 

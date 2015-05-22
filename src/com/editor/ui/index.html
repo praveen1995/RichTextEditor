@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <title>PRATILIPI RichTextEditor</title>
@@ -11,18 +10,25 @@
 
 <form method = "post" action = "submit" id = "rtf">
 
-<input type = "button" value = "B" onclick = "bold()">
-<input type = "button" value = "I" onclick = "italic()">
-<input type = "button" value = "U" onclick = "underline()">
+<input type = "button" value = "B" style="height:21px; width:21px; font-weight:bold;" onclick = "bold()">
+<input type = "button" value = "I" style="height:21px; width:21px; font-style:italic ;" onclick = "italic()">
+<input type = "button" value = "U" style="height:21px; width:21px; text-decoration:underline;" onclick = "underline()">
 <input type = "button" value = "Size" onclick = "fontsize()">
 <input type = "button" value = "Color" onclick = "fontcolor()">
 <input type = "button" value = "Highlight" onclick = "highlight()">
 <input type = "button" value = "Link" onclick = "link()">
 <input type = "button" value = "Unlink" onclick = "unlink()">
+<input type="button" value="Img" onclick="insertImage()">
+<input type = "button" value = "UL" style="height:21px; width:30px;" onclick = "unOrderedList()">
+<input type = "button" value = "OL" style="height:21px; width:30px;" onclick = "orderedList()">
+<input type = "button" value = "L" style="height:21px; width:25px;" onclick = "leftAlign()">
+<input type = "button" value = "C" style="height:21px; width:25px;" onclick = "centerAlign()">
+<input type = "button" value = "R" style="height:21px; width:25px;" onclick = "rightAlign()"> 
+
 <br><br>
 
 <textarea name = "textarea" id = "textarea" style = "display: none;"></textarea>
-<iframe name = "editor" id = "editor" style = "width: 500; height: 400;"></iframe>
+<iframe name = "editor" id = "editor" style = "width: 600; height: 400;"></iframe>
 <br><br>
 
 <input type = "button" onclick = "formsubmit()" value = "Post">
