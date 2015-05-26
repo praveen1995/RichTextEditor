@@ -38,9 +38,17 @@ function unlink() {
 	
 }
 
+/*
 function insertImage() {
-    location.href = 'phpindex.html';
-}	
+    //location.href = 'phpindex.html';
+	<a href="http://localhost/file_browser/phpindex.html" 
+  target="popup" 
+  onclick="window.open('http://localhost/file_browser/phpindex.html','popup','width=600,height=600'); return false;">
+    img
+</a>
+	
+}
+*/	
 	
 function unOrderedList() {
 	editor.document.execCommand('insertunorderedlist',false,null);

@@ -1,12 +1,12 @@
 <html>
 <head>
 <title>PRATILIPI RichTextEditor</title>
-<script src = "js.js"></script> 
+<script src="script.js"></script> 
 </head>
 
-<body onLoad = "iframe()">
+<body onLoad = "iFrameOn()">
 
-<h2 style = "font-family: arial;">WYSIWYG Editor</h2>
+<h2 style = "font-family: arial;">Rich Text Editor</h2>
 
 <form method = "post" action = "submit" id = "rtf">
 
@@ -18,7 +18,12 @@
 <input type = "button" value = "Highlight" onclick = "highlight()">
 <input type = "button" value = "Link" onclick = "link()">
 <input type = "button" value = "Unlink" onclick = "unlink()">
-<input type="button" value="Img" onclick="insertImage()">
+<a href="http://localhost/file_browser/phpindex.html" 
+  target="popup" 
+  onclick="window.open('http://localhost/file_browser/phpindex.html','popup','width=600,height=600'); return false;">
+   <input type = "button" value = "Img"> 
+</a>
+	
 <input type = "button" value = "UL" style="height:21px; width:30px;" onclick = "unOrderedList()">
 <input type = "button" value = "OL" style="height:21px; width:30px;" onclick = "orderedList()">
 <input type = "button" value = "L" style="height:21px; width:25px;" onclick = "leftAlign()">
