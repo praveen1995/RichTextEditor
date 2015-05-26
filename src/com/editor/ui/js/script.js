@@ -1,4 +1,4 @@
-function iframe() {
+function iFrameOn() {
 	editor.document.designMode = 'on';
 }
 
@@ -38,17 +38,9 @@ function unlink() {
 	
 }
 
-function insertImage() { 
-      var img = document.createElement("img");
-      img.src = "photocat2.jpg"; 
-      img.height = 75; 
-      img.width = 113;
-      img.style.top=800;
-      img.style.right=100;
-      document.body.appendChild(img);
-    }
-	
-
+function insertImage() {
+    location.href = 'phpindex.html';
+}	
 	
 function unOrderedList() {
 	editor.document.execCommand('insertunorderedlist',false,null);
@@ -75,3 +67,26 @@ function formsubmit() {
 document.getElementById("textarea").value = windowframes['editor'].document.body.innerHTML;
 document.getElementById("rtf").submit();
 }
+
+$(function() {
+     $('#myForm').ajaxForm({
+			beforeSend:function(){
+				$(".progress").show();	
+			},
+			uploadProgress:function(event,position,total,percentComplete){
+				console.log( "uplod");
+				$(".progress-bar").width(percentComplete+'%');
+				$(".sr-only").html(percentComplete+'%');
+			},
+			success:function(){
+				//$(".progress").hide();	
+				 $("#bar").width('100%');
+                 $("#percent").html('100%');
+			},
+			complete:function(response){
+				$(".image").html("<img src='"+response.responseText+"'width='100%'/>" );
+				
+			}
+		 });		
+		$(".progress").hide();			
+});
