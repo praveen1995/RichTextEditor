@@ -19,6 +19,19 @@ function fontsize() {
 	editor.document.execCommand('fontsize',false,size);
 }
 
+function undo() {
+	editor.document.execCommand('undo',false,null);
+}
+
+function redo() {
+	editor.document.execCommand('redo',false,null);
+}
+
+function heading() {
+	var head = prompt("Enter a size(H1-H6)","")
+	editor.document.execCommand('heading',false,head);
+}
+
 function fontcolor() {
 	var color = prompt("Enter a hexadecimal code or name of color","")
 	editor.document.execCommand('forecolor',false,color);
@@ -87,14 +100,50 @@ $(function() {
 				$(".sr-only").html(percentComplete+'%');
 			},
 			success:function(){
-				//$(".progress").hide();	
-				 $("#bar").width('100%');
-                 $("#percent").html('100%');
+				$(".progress").hide();	
+				 //$("#bar").width('100%');
+                 //$("#percent").html('100%');
 			},
 			complete:function(response){
-				$(".image").html("<img src='"+response.responseText+"'width='100%'/>" );
+				console.log( response);
+				$(".image").html("<img src='"+response.responseText+"' width='100%'/>" );
 				
 			}
 		 });		
 		$(".progress").hide();			
 });
+
+ $(document).ready(function ()
+   {
+      $("#button").click(function (e)
+      {
+         ShowDialog(false);
+         e.preventDefault();
+      });
+       
+   });
+
+  function ShowDialog(modal)
+   {
+      $("#overlay").show();
+      $("#dialog").fadeIn(300);
+
+      if (modal)
+      {
+         $("#overlay").unbind("click");
+      }
+      else
+      {
+         $("#overlay").click(function (e)
+         {
+            HideDialog();
+         });
+      }
+   }
+
+   function HideDialog()
+   {
+      $("#overlay").hide();
+      $("#dialog").fadeOut(300);
+   } 
+        
