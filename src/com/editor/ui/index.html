@@ -1,135 +1,36 @@
 <html>
 <head>
-<title>PRATILIPI RichTextEditor</title>
-<style>
-.web_dialog_overlay
-{
-   position: fixed;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   left: 0;
-   height: 100%;
-   width: 100%;
-   margin: 0;
-   padding: 0;
-   background: #000000;
-   opacity: .8;
-   filter: alpha(opacity=15);
-   -moz-opacity: .15;
-   z-index: 101;
-   display: none;
-   overflow: hidden;
-}
-.web_dialog
-{
-   display: none;
-   position: fixed;
-   width: 380px;
-   height: 200px;
-   top: 50%;
-   left: 50%;
-   margin-left: -190px;
-   margin-top: -100px;
-   background-color: #ffffff;
-   border: 2px solid #336699;
-   padding: 0px;
-   z-index: 102;
-   font-family: Verdana;
-   font-size: 10pt;
-   
-}
-
-#crop_button{
-background: #000;
-color: #fff;
-padding: 5px;
-border: 0px;
-}
-
-#box {
-position: absolute;
-top: 0px;
-left: 0px;
-width: 100px;
-height: 100px;
-background: #fff;
-opacity :0.5;
-}
-
-</style>
-	<title>Ajax Image Upload</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" href="style.css">
-	<script src="http://code.jquery.com/jquery-2.1.1-rc2.min.js"></script>
-	<script src="http://malsup.github.com/jquery.form.js"></script> 
+	<title>PRATILIPI RichTextEditor</title>
 	<script src="script.js"></script>
-	
 	<script src="scripts/jquery-1.4.3.min.js" type="text/javascript"></script>
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <body onLoad = "iFrameOn()">
-
-<h2 style = "font-family: arial;">Rich Text Editor</h2>
-<form method = "post" action = "submit" id = "rtf">
-
-<input type = "button" value = "B" style="height:25px; width:31px; font-weight:bold;" onclick = "bold()">
-<input type = "button" value = "I" style="height:25px; width:31px; font-style:italic ;" onclick = "italic()">
-<input type = "button" value = "U" style="height:25px; width:31px; text-decoration:underline;" onclick = "underline()">
-<input type = "button" value = "Size" onclick = "fontsize()">
-<input type = "button" value = "Undo" onclick = "undo()">
-<input type = "button" value = "Redo" onclick = "redo()">
-<input type = "button" value = "Heading" onclick = "heading()">
-<input type = "button" value = "Color" onclick = "fontcolor()">
-<input type = "button" value = "Highlight" onclick = "highlight()">
-<input type = "button" value = "Link" onclick = "link()">
-<input type = "button" value = "Unlink" onclick = "unlink()">
-<input type = "button" value = "Img" id = "button">
-<input type = "button" value = "UL" style="height:25px; width:30px;" onclick = "unOrderedList()">
-<input type = "button" value = "OL" style="height:25px; width:30px;" onclick = "orderedList()">
-<input type = "button" value = "L" style="height:25px; width:25px;" onclick = "leftAlign()">
-<input type = "button" value = "C" style="height:25px; width:25px;" onclick = "centerAlign()">
-<input type = "button" value = "R" style="height:25px; width:25px;" onclick = "rightAlign()"> 
-
-<br><br>
-
-<textarea name = "textarea" id = "textarea" style = "display: none;"></textarea>
-<iframe name = "editor" id = "editor" style = "width: 760; height: 400;"></iframe>
-<br><br>
-
-<input type = "button" onclick = "formsubmit()" value = "Post">
-</form>
-
-    
-<br /><br />       
-    
-<div id="output"></div>
-    
-<div id="overlay" class="web_dialog_overlay"></div>
-    
-<div id ="dialog" class="web_dialog">
-<h1>Image Uploader</h1>
-<p>Image Uploading</p>
-
-<form action="uploaddd.php" method="post" id="myForm"enctype="multipart/form-data">
-    <label for="file">Filename:</label>
-	
-    <input type="file" name="fileToUpload" id="fileToUpload"><br>
-	
-    <input type="submit" value="Upload Image" name="submit" class="btn btn-success">
-</form>
-
-<div class="progress progress-striped active">
-  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-    <span class="sr-only">0% Complete</span>
-  </div>
-</div>
- <div class = "image">
- </div>
- </div>
-<!--
- <button id="crop_button">crop</button>
--->
+	<h2 style = "font-family: arial;">Rich Text Editor</h2>
+	<form method = "post" id = "rtf">
+	<div class="btn-group">
+		<a class="btn btn-default" href="#" onclick = "bold()"><i class="fa fa-bold"></i></a>
+		<a class="btn btn-default" href="#" onclick = "italic()"><i class="fa fa-italic"></i></a>
+		<a class="btn btn-default" href="#" onclick = "underline()"><i class="fa fa-underline"></i></a>
+		<a class="btn btn-default" href="#" onclick = "undo()"><i class="fa fa-undo"></i></a>
+		<a class="btn btn-default" href="#" onclick = "redo()"><i class="fa fa-repeat"></i></a>
+		<a class="btn btn-default" href="#" onclick = "heading()"><i class="fa fa-header"></i></a>
+		<a class="btn btn-default" href="#" onclick = "link()"><i class="fa fa-link"></i></a>
+		<a class="btn btn-default" href="#" onclick = "unlink()"><i class="fa fa-unlink"></i></a>
+		<a class="btn btn-default" href="#"  id = "button"><i class="fa fa-camera-retro fa-1x"></i></a>
+		<a class="btn btn-default" href="#" onclick = "orderedList()"><i class="fa fa-list-ol"></i></a>
+		<a class="btn btn-default" href="#" onclick = "unOrderedList()"><i class="fa fa-list-ul"></i></a>
+		<a class="btn btn-default" href="#" onclick = "leftAlign()"><i class="fa fa-align-left"></i></a>
+		<a class="btn btn-default" href="#" onclick = "centerAlign()"><i class="fa fa-align-center"></i></a>
+		<a class="btn btn-default" href="#" onclick = "rightAlign()"><i class="fa fa-align-right"></i></a>	  
+	</div>
+	<br><br>
+	<textarea name = "textarea" id = "textarea" style = "display: none;"></textarea>
+	<iframe name = "editor" id = "editor" style = "width: 540; height: 400;"></iframe>
+	<br><br>
+	<input type = "button" onclick = "formsubmit()" value = "Post">
+	</form>   
 </body>
 </html>
